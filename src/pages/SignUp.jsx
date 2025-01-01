@@ -2,23 +2,23 @@ import React from "react";
 
 const Signup = () => {
   return (
-    <div className="min-h-screen flex">
+    <div className="flex min-h-screen">
       {/* Left Section: Illustration */}
-      <div className="w-1/2 bg-gray-100 flex flex-col justify-center items-center p-10">
+      <div className="flex flex-col items-center justify-center w-1/2 p-10 bg-gray-100">
         <h1 className="text-4xl font-bold text-blue-500">TaskTide</h1>
-        <p className="mt-4 text-gray-600 text-lg">
+        <p className="mt-4 text-lg text-gray-600">
           A central hub where teams can work, plan, and achieve amazing things
           together.
         </p>
         <img
-          src="/images/tasktide"
+          src="/images/tasktide_logo.png"
           alt="Signup Illustration"
-          className="mt-8 w-3/4"
+          className="w-3/4 mt-8"
         />
       </div>
 
       {/* Right Section: Signup Form */}
-      <div className="w-1/2 flex flex-col justify-center items-center p-10">
+      <div className="flex flex-col items-center justify-center w-1/2 p-10">
         <div className="w-3/4">
           <h2 className="text-3xl font-bold text-slate-50">
             Sign up to TaskTide
@@ -43,7 +43,7 @@ const Signup = () => {
                 type="email"
                 id="email"
                 placeholder="name@mail.com"
-                className="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                className="w-full px-4 py-2 mt-1 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
               />
             </div>
 
@@ -59,14 +59,14 @@ const Signup = () => {
                 type="password"
                 id="password"
                 placeholder="6+ Characters, 1 Capital letter"
-                className="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                className="w-full px-4 py-2 mt-1 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
               />
             </div>
 
             {/* Signup Button */}
             <button
               type="submit"
-              className="w-full py-2 bg-blue-500 text-white font-bold rounded-md hover:bg-blue-600"
+              className="w-full py-2 font-bold text-white bg-blue-500 rounded-md hover:bg-blue-600"
             >
               Create an account
             </button>
@@ -74,10 +74,10 @@ const Signup = () => {
             {/* Google Signup */}
             <button
               type="button"
-              className=" relative z-10 w-full mt-4 py-2 border outline-none border-gray-300 rounded-md flex justify-center items-center text-gray-700 hover:bg-gray-100 transition-colors duration-400 ease-in-out overflow-hidden "
+              className="relative z-10 flex items-center justify-center w-full py-2 mt-4 overflow-hidden text-gray-700 transition-colors ease-in-out border border-gray-300 rounded-md outline-none hover:bg-gray-100 duration-400"
             >
               <img
-                src="/images/google-icon.png"
+                src="/images/google.png"
                 alt="Google Icon"
                 className="w-5 h-5 mr-2"
               />
