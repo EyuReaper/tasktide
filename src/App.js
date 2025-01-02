@@ -17,7 +17,7 @@ const App = () => {
     <Router>
       <Navbar />
       <NotificationSystem />
-      <div className="container mx-auto p-4">
+      <div className="container p-4 mx-auto bg-white">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

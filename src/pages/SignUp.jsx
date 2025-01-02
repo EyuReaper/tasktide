@@ -20,7 +20,7 @@ const Signup = () => {
       {/* Right Section: Signup Form */}
       <div className="flex flex-col items-center justify-center w-1/2 p-10">
         <div className="w-3/4">
-          <h2 className="text-3xl font-bold text-slate-50">
+          <h2 className="text-3xl font-bold text-gray-600">
             Sign up to TaskTide
           </h2>
           <p className="mt-2 text-slate-400">

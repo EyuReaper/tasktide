@@ -2,20 +2,20 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="min-h-screen" style= {{backgroundColor: '#1D232A'}}>
+    <div className="min-h-screen bg-white" >
 
       {/* Hero Section */}
-      <section className="container mx-auto my-16 px-8">
-        <div className="grid md:grid-cols-2 gap-8 items-center">
+      <section className="container px-8 mx-auto my-16">
+        <div className="grid items-center gap-8 md:grid-cols-2">
           {/* Left Content */}
           <div>
-            <h2 className="text-orange-500 font-semibold text-lg mb-2">
+            <h2 className="mb-2 text-lg font-semibold text-orange-500">
               How It Started
             </h2>
-            <h1 className="text-4xl font-bold text-slate-400 mb-4">
-              Our Dream is Global Learning Transformation
+            <h1 className="mb-4 text-4xl font-bold text-gray-900">
+              Our Dream is Global Syncronization of Teams & Tasks 
             </h1>
-            <p className="text-slate-100 leading-relaxed">
+            <p className="leading-relaxed text-gray-900">
               TaskTide was founded by Robert Anderson, a passionate lifelong learner,
               and Maria Sanchez, a visionary educator. Their shared dream was to
               create a digital haven of knowledge accessible to all. United by their
@@ -30,7 +30,7 @@ const About = () => {
           {/* Right Content */}
           <div className="flex justify-center">
             <img
-              src="/images/about-illustration.png"
+              src="/images/network.png"
               alt="About Illustration"
               className="rounded-lg shadow-md"
             />
@@ -39,23 +39,23 @@ const About = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="bg-white py-12">
-        <div className="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <section className="py-12 bg-white" >
+        <div className="container grid grid-cols-2 gap-8 mx-auto text-center md:grid-cols-4">
           <div>
             <h3 className="text-4xl font-bold text-gray-900">3.5</h3>
-            <p className="text-gray-600 mt-2">Years Experience</p>
+            <p className="mt-2 text-slate-600">Years Experience</p>
           </div>
           <div>
             <h3 className="text-4xl font-bold text-gray-900">23</h3>
-            <p className="text-gray-600 mt-2">Project Challenges</p>
+            <p className="mt-2 text-slate-600">Project Challenges</p>
           </div>
           <div>
             <h3 className="text-4xl font-bold text-gray-900">830+</h3>
-            <p className="text-gray-600 mt-2">Positive Reviews</p>
+            <p className="mt-2 text-gray-600">Positive Reviews</p>
           </div>
           <div>
             <h3 className="text-4xl font-bold text-gray-900">100K</h3>
-            <p className="text-gray-600 mt-2">daily visitors</p>
+            <p className="mt-2 text-gray-600">daily visitors</p>
           </div>
         </div>
       </section>

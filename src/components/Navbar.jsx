@@ -15,16 +15,16 @@ const Navbar = () => {
     <div className="flex-none hidden lg:block">
       <ul className="space-x-3 menu menu-horizontal">
         <li>
-          <Link to="/" className="hover:text-gray-300">Home</Link>
+          <Link to="/" className="text-white hover:bg-blue-600">Home</Link>
         </li>
         <li>
-          <Link to="/about" className="hover:text-gray-300">About</Link>
+          <Link to="/about" className="text-white hover:bg-blue-600">About</Link>
         </li>
         <li>
-          <Link to="/login" className="hover:text-gray-300">Sign In</Link>
+          <Link to="/login" className="text-white hover:bg-blue-600">Sign In</Link>
         </li>
         <li>
-          <Link to="/signup" className="hover:text-gray-300">Sign up</Link>
+          <Link to="/signup" className="text-white hover:bg-blue-600">Sign up</Link>
         </li>
       </ul>
     </div>

@@ -2,8 +2,7 @@ import React from "react";
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Navbar */}
+    <div className="min-h-screen bg-gray-50"  >
 
       {/* Hero Section */}
       <section className="container grid items-center gap-8 px-8 mx-auto mt-16 md:grid-cols-2">
@@ -13,20 +12,20 @@ const HomePage = () => {
             Stay productive with <br />
             <span className="text-blue-600">TaskTide</span>
           </h1>
-          <p className="mb-6 text-lg text-gray-600">
+          <p className="mb-6 text-lg text-gray-900">
             Your go-to platform for task management and team collaboration.
             Organize your work, meet deadlines, and achieve goals—all in one
             place.
           </p>
           <div className="flex space-x-4">
             <a
-              href="/demo"
+              href="/login"
               className="px-6 py-3 text-white bg-blue-600 rounded-lg hover:bg-blue-500"
             >
-              Get Free Demo
+              Get started
             </a>
             <a
-              href="/learn-more"
+              href="/About"
               className="px-6 py-3 text-blue-600 border border-blue-600 rounded-lg hover:bg-blue-100"
             >
               Learn More
@@ -38,7 +37,7 @@ const HomePage = () => {
         <div className="relative">
           {/* Replace the image below */}
           <img
-            src="/images/tasktide-hero.png"
+            src="/images/tasktide_logo.png"
             alt="TaskTide Hero Illustration"
             className="relative w-full rounded-lg shadow-lg"
           />
@@ -49,9 +48,9 @@ const HomePage = () => {
       <section className="container grid gap-8 px-8 mx-auto mt-16 md:grid-cols-3">
         <div className="flex items-center p-6 space-x-4 bg-white rounded-lg shadow-md">
           <img
-            src="/images/tasks-icon.png"
+            src="/images/schedule.png"
             alt="Task Management"
-            className="w-12 h-12"
+            className="w-40 h-40"
           />
           <div>
             <h3 className="text-lg font-bold text-gray-900">
@@ -64,9 +63,9 @@ const HomePage = () => {
         </div>
         <div className="flex items-center p-6 space-x-4 bg-white rounded-lg shadow-md">
           <img
-            src="/images/team-icon.png"
+            src="/images/teamwork.png"
             alt="Team Collaboration"
-            className="w-12 h-12"
+            className="w-40 h-40"
           />
           <div>
             <h3 className="text-lg font-bold text-gray-900">
@@ -79,9 +78,9 @@ const HomePage = () => {
         </div>
         <div className="flex items-center p-6 space-x-4 bg-white rounded-lg shadow-md">
           <img
-            src="/images/integrations-icon.png"
+            src="/images/brain.png"
             alt="Integrations"
-            className="w-12 h-12"
+            className="w-40 h-40"
           />
           <div>
             <h3 className="text-lg font-bold text-gray-900">
