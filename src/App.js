@@ -7,6 +7,7 @@ import About from "./pages/About";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Profile from "./pages/Profile";
+import Footer from  "./components/Footer";
 import Settings from "./pages/Settings";
 import Kanban from "./pages/Kanban";
 import Analytics from "./pages/Analytics";
@@ -29,7 +30,9 @@ const App = () => {
           <Route path="/analytics" element={<Analytics />} />
           <Route path="*" element={<Error404 />} />
         </Routes>
+
       </div>
+      <Footer/>
     </Router>
   );
 };
