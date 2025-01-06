@@ -8,7 +8,7 @@ const Error404 = () => {
   <img
     src="/images/404 Animation.gif"
     alt="Error 404"
-    className="h-auto max-w-full w-96" // Adjust the width as needed
+    className="h-auto max-w-full w-96" 
   />
 </div>
         <h1 className="text-5xl font-bold text-blue-600">Sorry!</h1>
