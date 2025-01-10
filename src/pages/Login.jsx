@@ -1,6 +1,5 @@
 import React from "react";
 
-
 const Login = () => {
   return (
     <div className="flex min-h-screen">
@@ -27,33 +26,32 @@ const Login = () => {
           <hr className="flex-grow border-gray-300" />
         </div>
 
-        {/* Email Input */}
+        {/* Email and Password Form */}
         <form className="w-3/4">
           <div className="mb-4">
             <input
               type="email"
               placeholder="Your email"
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              required
             />
           </div>
 
-          {/* Password Input */}
           <div className="mb-4">
             <input
               type="password"
               placeholder="Password"
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              required
             />
           </div>
 
-          {/* Forgot Password */}
           <div className="mb-4 text-right">
             <a href="/forgot-password" className="text-sm text-blue-500 hover:underline">
               Forgot password?
             </a>
           </div>
 
-          {/* Login Button */}
           <button
             type="submit"
             className="w-full py-2 font-bold text-white bg-black rounded-md hover:bg-gray-800"
@@ -71,27 +69,21 @@ const Login = () => {
       </div>
 
       {/* Right Section */}
-{/* Right Section */}
-<div
-  className="relative w-1/2 bg-center bg-no-repeat bg-cover"
-  style={{
-    backgroundImage: "url('/images/time.png'),"
-  }}
->
-  <h2 className="absolute text-sm text-white top-4 right-4">
-    <select className="text-white bg-transparent border-none">
-      <option value="en">English (USA)</option>
-      <option value="es">Español</option>
-    </select>
-  </h2>
-  <div className="absolute text-white bottom-8 left-8">
-    <h2 className="text-xl font-semibold">Welcome to TaskTide</h2>
-    <p className="mt-2 text-gray-300">
-      To start using TaskTide, log in with your email address.
-    </p>
-  </div>
-</div>      </div>
-    );
+      <div
+        className="relative w-1/2 bg-center bg-no-repeat bg-cover"
+        style={{
+          backgroundImage: "url('/images/time.png')", // Fix backgroundImage style
+        }}
+      >
+        <div className="absolute text-white bottom-8 left-8">
+          <h2 className="text-xl font-semibold">Welcome to TaskTide</h2>
+          <p className="mt-2 text-gray-300">
+            To start using TaskTide, log in with your email address.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Login;

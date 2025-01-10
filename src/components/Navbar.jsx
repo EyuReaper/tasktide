@@ -8,7 +8,7 @@ const Navbar = () => {
     {/* Logo Section */}
     <div className="flex items-center flex-1 space-x-2">
       <img className="rounded-full w-9 h-9" alt="logo" src="/images/tasktide_logo.png" />
-      <h1 className="text-xl font-bold btn btn-ghost">TaskTide</h1>
+      <h1 className="text-xl font-bold btn btn-ghost" >TaskTide</h1>
     </div>
 
     {/* Menu Section */}
