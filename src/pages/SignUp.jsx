@@ -1,12 +1,15 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleSignup = async (e) => {
     e.preventDefault();
+    navigate('/dashboard');
 
     if (!email || !password) {
       setError("Please fill in all fields.");
@@ -112,7 +115,7 @@ const Signup = () => {
             <button
               type="submit"
               className="w-full py-2 font-bold text-white bg-blue-500 rounded-md hover:bg-blue-600"
-            >
+            onClick={handleSignup}>
               Create an account
             </button>
           </form>
@@ -121,6 +124,7 @@ const Signup = () => {
           <button
             type="button"
             className="relative z-10 flex items-center justify-center w-full py-2 mt-4 overflow-hidden text-gray-700 transition-colors ease-in-out border border-gray-300 rounded-md outline-none hover:bg-gray-100 duration-400"
+          onClick={handleSignup}
           >
             <img
               src="/images/google.png"
