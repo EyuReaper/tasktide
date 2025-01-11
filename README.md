@@ -1,70 +1,137 @@
-# Getting Started with Create React App
+# TaskTide
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+TaskTide is a task management application that allows users to create, manage, and track projects, tasks, and team collaboration. It includes real-time features, a modern dashboard inspired by productivity tools, and secure user authentication.
 
-## Available Scripts
+## Features
+- User signup and login with password hashing and JWT authentication.
+- Dashboard for managing projects, tasks, and team members.
+- Real-time updates and notifications with Socket.IO.
+- Time tracking for project tasks.
+- Responsive design using React and Tailwind CSS.
 
-In the project directory, you can run:
+## Technologies Used
 
-### `npm start`
+### Frontend
+- React
+- Tailwind CSS
+- Redux
+- React Router
+- React Hook Form
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Backend
+- Node.js with Express
+- PostgreSQL
+- OAuth (for user authentication, if required)
+- bcrypt (for password hashing)
+- jsonwebtoken (for generating JWT tokens)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Real-Time Features
+- Socket.IO
 
 ### Deployment
+- Compatible with Heroku, Vercel, or Netlify.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Getting Started
 
-### `npm run build` fails to minify
+### Prerequisites
+- [Node.js](https://nodejs.org/) installed.
+- [PostgreSQL](https://www.postgresql.org/) installed and running.
+- A package manager like `npm` or `yarn`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/tasktide.git
+   cd tasktide
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Set up the PostgreSQL database:
+   - Create a new database called `tasktide_db`.
+   - Run the following SQL to create the `users` table:
+     ```sql
+     CREATE TABLE users (
+         id SERIAL PRIMARY KEY,
+         email VARCHAR(255) UNIQUE NOT NULL,
+         password_hash VARCHAR(255) NOT NULL,
+         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+     );
+     ```
+
+4. Set up environment variables:
+   Create a `.env` file in the root directory and configure the following:
+   ```env
+   DB_USER=your_postgres_username
+   DB_PASSWORD=your_postgres_password
+   DB_HOST=localhost
+   DB_PORT=5432
+   DB_NAME=tasktide_db
+   JWT_SECRET=your_jwt_secret
+   ```
+
+### Running the Application
+1. Start the backend server:
+   ```bash
+   npm start
+   ```
+   The server will run at `http://localhost:5000`.
+
+2. Start the React frontend:
+   ```bash
+   cd client
+   npm start
+   ```
+   The frontend will run at `http://localhost:3000`.
+
+### Testing API Endpoints
+Use a tool like [Postman](https://www.postman.com/) or cURL to test the API endpoints:
+
+- **Signup:**
+  ```bash
+  POST http://localhost:5000/api/auth/signup
+  {
+    "email": "test@example.com",
+    "password": "Test1234"
+  }
+  ```
+
+- **Login:**
+  ```bash
+  POST http://localhost:5000/api/auth/login
+  {
+    "email": "test@example.com",
+    "password": "Test1234"
+  }
+  ```
+
+## Project Structure
+```plaintext
+.
+├── client              # Frontend React app
+├── routes              # API routes
+├── models              # Database models (if applicable)
+├── db.js               # PostgreSQL connection setup
+├── server.js           # Main server file
+├── .env                # Environment variables
+├── README.md           # Project documentation
+```
+
+## Deployment
+TaskTide can be deployed using platforms like Heroku, Vercel, or Netlify. For backend services, configure the `DATABASE_URL` environment variable provided by the platform.
+
+## Future Enhancements
+- Add real-time chat for team members.
+- Implement advanced task filtering and search.
+- Integrate with third-party services like Google Drive or Slack.
+
+## License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+## Acknowledgments
+- Inspired by modern productivity tools like Asana and Trello.
+- Thanks to open-source contributors and the community for providing guidance and libraries.
+
