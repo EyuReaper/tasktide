@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { Pool } = require("pg");
+const { Pool } = require("./config/db");
 require("dotenv").config();
 
 const app = express();

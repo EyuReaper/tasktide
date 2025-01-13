@@ -68,7 +68,7 @@ TaskTide is a task management application that allows users to create, manage, a
    DB_USER=your_postgres_username
    DB_PASSWORD=your_postgres_password
    DB_HOST=localhost
-   DB_PORT=5432
+   DB_PORT=**5432**
    DB_NAME=tasktide_db
    JWT_SECRET=your_jwt_secret
    ```
@@ -85,7 +85,7 @@ TaskTide is a task management application that allows users to create, manage, a
    cd client
    npm start
    ```
-   The frontend will run at `http://localhost:3000`.
+   The frontend will run at `http://**localhost**:3000`.
 
 ### Testing API Endpoints
 Use a tool like [Postman](https://www.postman.com/) or cURL to test the API endpoints:
