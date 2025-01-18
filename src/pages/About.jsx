@@ -1,8 +1,9 @@
 import React from "react";
+import CountUp from "react-countup";
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-white" >
+    <div className="min-h-screen bg-base">
 
       {/* Hero Section */}
       <section className="container px-8 mx-auto my-16">
@@ -12,10 +13,10 @@ const About = () => {
             <h2 className="mb-2 text-lg font-semibold text-orange-500">
               How It Started
             </h2>
-            <h1 className="mb-4 text-4xl font-bold text-gray-900">
-              Our Dream is Global Syncronization of Teams & Tasks 
+            <h1 className="mb-4 text-4xl font-bold text-white">
+              Our Dream is Global Synchronization of Teams & Tasks
             </h1>
-            <p className="leading-relaxed text-gray-900">
+            <p className="leading-relaxed text-white">
               TaskTide was founded by Robert Anderson, a passionate lifelong learner,
               and Maria Sanchez, a visionary educator. Their shared dream was to
               create a digital haven of knowledge accessible to all. United by their
@@ -39,23 +40,31 @@ const About = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-12 bg-white" >
+      <section className="py-12 bg-base">
         <div className="container grid grid-cols-2 gap-8 mx-auto text-center md:grid-cols-4">
           <div>
-            <h3 className="text-4xl font-bold text-gray-900">3.5</h3>
-            <p className="mt-2 text-slate-600">Years Experience</p>
+            <h3 className="text-4xl font-bold text-white">
+              <CountUp end={3.5} duration={2.5} decimals={1} />
+            </h3>
+            <p className="mt-2 text-slate-400">Years Experience</p>
           </div>
           <div>
-            <h3 className="text-4xl font-bold text-gray-900">23</h3>
-            <p className="mt-2 text-slate-600">Project Challenges</p>
+            <h3 className="text-4xl font-bold text-white">
+              <CountUp end={23} duration={2.5} />
+            </h3>
+            <p className="mt-2 text-slate-400">Project Challenges</p>
           </div>
           <div>
-            <h3 className="text-4xl font-bold text-gray-900">830+</h3>
-            <p className="mt-2 text-gray-600">Positive Reviews</p>
+            <h3 className="text-4xl font-bold text-white">
+              <CountUp end={830} duration={2.5} suffix="+" />
+            </h3>
+            <p className="mt-2 text-gray-400">Positive Reviews</p>
           </div>
           <div>
-            <h3 className="text-4xl font-bold text-gray-900">100K</h3>
-            <p className="mt-2 text-gray-600">daily visitors</p>
+            <h3 className="text-4xl font-bold text-white">
+              <CountUp end={100000} duration={2.5} separator="," />
+            </h3>
+            <p className="mt-2 text-gray-400">Daily Visitors</p>
           </div>
         </div>
       </section>

@@ -12,8 +12,8 @@ const Login = () => {
   return (
     <div className="flex min-h-screen">
       {/* Left Section */}
-      <div className="flex flex-col items-center justify-center w-1/2 p-10 bg-white">
-        <h1 className="text-4xl font-bold text-gray-800">Hi there!</h1>
+      <div className="flex flex-col items-center justify-center w-1/2 p-10 bg-base-100">
+        <h1 className="text-4xl font-bold text-white">Hi there!</h1>
         <p className="mt-2 text-gray-500">
           Welcome to TaskTide. Community Dashboard
         </p>

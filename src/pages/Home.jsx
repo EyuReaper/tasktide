@@ -2,17 +2,17 @@ import React from "react";
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen bg-gray-50"  >
+    <div className="min-h-screen bg-base-100"  >
 
       {/* Hero Section */}
       <section className="container grid items-center gap-8 px-8 mx-auto mt-16 md:grid-cols-2">
         {/* Left Content */}
         <div>
-          <h1 className="mb-6 text-5xl font-extrabold leading-tight text-gray-900">
+          <h1 className="mb-6 text-5xl font-extrabold leading-tight text-white">
             Stay productive with <br />
             <span className="text-blue-600">TaskTide</span>
           </h1>
-          <p className="mb-6 text-lg text-gray-900">
+          <p className="mb-6 text-lg text-white">
             Your go-to platform for task management and team collaboration.
             Organize your work, meet deadlines, and achieve goals—all in one
             place.

@@ -21,7 +21,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-base-100">
+    <div className="flex h-screen text-white bg-base-100">
       {/* Sidebar */}
       <aside className="w-1/4 p-4 shadow-md bg-base-200">
         {/* Profile Section */}
@@ -41,7 +41,7 @@ const Dashboard = () => {
         <nav className="space-y-4">
           <div>
             <h4 className="mb-2 text-sm text-gray-500 uppercase">Dashboards</h4>
-            <ul className="space-y-4 space-x-7">
+            <ul className="mt-6 space-y-1">
               <li className="flex items-center space-x-20 font-medium text-white cursor-pointer hover:text-blue-500">
                 <span className="material-icons">inbox</span>
                 <span className="ml-auto bg-blue-500 text-white text-xs px-2 py-0.5 rounded">2</span>
