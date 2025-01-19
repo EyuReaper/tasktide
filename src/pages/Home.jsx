@@ -46,47 +46,47 @@ const HomePage = () => {
 
       {/* Features Section */}
       <section className="container grid gap-8 px-8 mx-auto mt-16 md:grid-cols-3">
-        <div className="flex items-center p-6 space-x-4 bg-white rounded-lg shadow-md">
+        <div className="flex items-center p-6 space-x-4 rounded-lg shadow-md bg-base-200">
           <img
             src="/images/schedule.png"
             alt="Task Management"
             className="w-40 h-40"
           />
           <div>
-            <h3 className="text-lg font-bold text-gray-900">
+            <h3 className="text-lg font-bold text-white-200">
               Seamless Task Management
             </h3>
-            <p className="text-gray-600">
+            <p className="text-white">
               Track, prioritize, and complete tasks with ease.
             </p>
           </div>
         </div>
-        <div className="flex items-center p-6 space-x-4 bg-white rounded-lg shadow-md">
+        <div className="flex items-center p-6 space-x-4 rounded-lg shadow-md bg-base-200">
           <img
             src="/images/teamwork.png"
             alt="Team Collaboration"
             className="w-40 h-40"
           />
           <div>
-            <h3 className="text-lg font-bold text-gray-900">
+            <h3 className="text-lg font-bold text-white-200">
               Team Collaboration
             </h3>
-            <p className="text-gray-600">
+            <p className="text-white">
               Work together with your team in real time.
             </p>
           </div>
         </div>
-        <div className="flex items-center p-6 space-x-4 bg-white rounded-lg shadow-md">
+        <div className="flex items-center p-6 space-x-4 rounded-lg shadow-md bg-base-200">
           <img
             src="/images/brain.png"
             alt="Integrations"
             className="w-40 h-40"
           />
           <div>
-            <h3 className="text-lg font-bold text-gray-900">
+            <h3 className="text-lg font-bold text-white-200">
               Powerful Integrations
             </h3>
-            <p className="text-gray-600">
+            <p className="text-white">
               Connect with tools like Google Drive, Slack, and more.
             </p>
           </div>

@@ -135,7 +135,7 @@ const Dashboard = () => {
       {/* Tutorial Overlay */}
       {tutorialStep >= 0 && (
         <div className="fixed top-0 left-0 flex items-center justify-center w-full h-full bg-black bg-opacity-50">
-          <div className="p-6 bg-white rounded-md shadow-lg">
+          <div className="p-6 rounded-md shadow-lg bg-base-200">
             <p>{tutorialSteps[tutorialStep].text}</p>
             <button
               onClick={nextTutorialStep}

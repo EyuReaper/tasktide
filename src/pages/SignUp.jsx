@@ -42,7 +42,7 @@ const Signup = () => {
   return (
     <div className="flex min-h-screen">
       {/* Left Section: Illustration */}
-      <div className="flex flex-col items-center justify-center w-1/2 p-10 bg-gray-100">
+      <div className="flex flex-col items-center justify-center w-1/2 p-10 bg-base-700">
         <h1 className="text-4xl font-bold text-blue-500">TaskTide</h1>
         <p className="mt-4 text-lg text-gray-600">
           A central hub where teams can work, plan, and achieve amazing things
