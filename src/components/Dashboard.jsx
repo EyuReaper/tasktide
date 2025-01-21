@@ -1,5 +1,4 @@
-// Dashboard Component for TaskTide
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Dashboard = () => {
   const [tutorialStep, setTutorialStep] = useState(0);
@@ -20,60 +19,67 @@ const Dashboard = () => {
     }
   };
 
+  useEffect(() => {
+    const step = tutorialSteps[tutorialStep];
+    if (step) {
+      const element = document.getElementById(step.elementId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        element.classList.add('ring-4', 'ring-blue-500');
+        return () => element.classList.remove('ring-4', 'ring-blue-500');
+      }
+    }
+  }, [tutorialStep]);
+
   return (
-    <div className="flex h-screen text-white bg-base-100">
+    <div className="flex h-screen text-white bg-gray-900">
       {/* Sidebar */}
-      <aside className="w-1/4 p-4 shadow-md bg-base-200">
-        {/* Profile Section */}
+      <aside className="w-1/5 p-6 bg-gray-800 shadow-lg">
         <div className="flex items-center mb-8 space-x-4">
           <img
             src="/images/woman-profile.jpg"
             alt="Profile"
-            className="w-12 h-12 rounded-full"
+            className="w-12 h-12 border-2 border-blue-500 rounded-full"
           />
           <div>
-            <h3 className="text-lg font-semibold text-white">Jane Sparrow</h3>
+            <h3 className="text-lg font-semibold">Jane Sparrow</h3>
             <p className="text-sm text-gray-400">Designer</p>
           </div>
         </div>
 
-        {/* Menu Items */}
-        <nav className="space-y-4">
+        <nav className="space-y-8">
           <div>
-            <h4 className="mb-2 text-sm text-gray-500 uppercase">Dashboards</h4>
-            <ul className="mt-6 space-y-1">
-              <li className="flex items-center space-x-20 font-medium text-white cursor-pointer hover:text-blue-500">
+            <h4 className="text-sm font-bold text-gray-500 uppercase">Dashboards</h4>
+            <ul className="mt-4 space-y-4">
+              <li className="flex items-center justify-between cursor-pointer hover:text-blue-400">
                 <span className="material-icons">inbox</span>
-                <span className="ml-auto bg-blue-500 text-white text-xs px-2 py-0.5 rounded">2</span>
+                <span className="px-2 py-0.5 text-xs font-medium text-white bg-blue-500 rounded-full">2</span>
               </li>
-              <li className="flex items-center space-x-2 font-medium text-white cursor-pointer hover:text-blue-500">
+              <li className="flex items-center justify-between cursor-pointer hover:text-blue-400">
                 <span className="material-icons">drive_file</span>
-                <span className="ml-auto bg-gray-200 text-gray-800 text-xs px-2 py-0.5 rounded">200</span>
+                <span className="px-2 py-0.5 text-xs font-medium bg-gray-200 text-gray-800 rounded-full">200</span>
               </li>
-              <li className="flex items-center space-x-2 font-medium text-white cursor-pointer hover:text-blue-500">
-                <span className="material-icons">Board</span>
-                <span className="ml-auto bg-blue-500 text-white text-xs px-2 py-0.5 rounded">3</span>
-              </li>
-              <li className="flex items-center space-x-2 font-medium text-white cursor-pointer hover:text-blue-500">
-                <span className="material-icons">update</span>
-              </li>
-              <li className="flex items-center space-x-2 font-medium text-white cursor-pointer hover:text-blue-500">
+              <li className="flex items-center cursor-pointer hover:text-blue-400">
                 <span className="material-icons">analytics</span>
+                <span className="ml-auto px-2 py-0.5 text-xs font-medium text-white bg-blue-500 rounded-full">3</span>
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="mb-2 text-sm text-gray-500 uppercase">Projects</h4>
-            <ul className="space-y-4 space-x-7">
-              <li className="flex items-center space-x-2 font-medium text-white cursor-pointer hover:text-blue-500">
+            <h4 className="text-sm font-bold text-gray-500 uppercase">Projects</h4>
+            <ul className="mt-4 space-y-4">
+              <li className="flex items-center cursor-pointer hover:text-blue-400">
                 <span className="material-icons">calendar_today</span>
+                <span className="ml-2">Calendar</span>
               </li>
-              <li className="flex items-center space-x-2 font-medium text-white cursor-pointer hover:text-blue-500">
+              <li className="flex items-center cursor-pointer hover:text-blue-400">
                 <span className="material-icons">branding_watermark</span>
+                <span className="ml-2">Branding</span>
               </li>
-              <li className="flex items-center space-x-2 font-medium text-white cursor-pointer hover:text-blue-500">
-                <span className="material-icons">new Project</span>
+              <li className="flex items-center cursor-pointer hover:text-blue-400">
+                <span className="material-icons">add</span>
+                <span className="ml-2">New Project</span>
               </li>
             </ul>
           </div>
@@ -81,62 +87,60 @@ const Dashboard = () => {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 p-6">
+      <main className="flex-1 p-6 bg-gray-900">
         {/* Header */}
-        <header className="flex items-center justify-between pb-4 border-b">
+        <header className="flex items-center justify-between pb-4 border-b border-gray-700">
           <h1 className="text-2xl font-bold">Dashboard</h1>
-          <div id="settings">
-            <button className="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600">
-              Settings
-            </button>
-          </div>
+          <button
+            id="settings"
+            className="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600"
+          >
+            Settings
+          </button>
         </header>
 
         {/* Task Board */}
         <section id="task-board" className="mt-6">
           <h2 className="text-lg font-semibold">Task Board</h2>
-          <div className="grid grid-cols-4 gap-4 mt-4">
-            <div className="p-4 bg-white border rounded-md shadow-sm">
-              <h3 className="font-bold">To Do</h3>
-              <p className="mt-2 text-sm text-gray-500">No tasks yet!</p>
-            </div>
-            <div className="p-4 bg-white border rounded-md shadow-sm">
-              <h3 className="font-bold">In Progress</h3>
-              <p className="mt-2 text-sm text-gray-500">No tasks yet!</p>
-            </div>
-            <div className="p-4 bg-white border rounded-md shadow-sm">
-              <h3 className="font-bold">Review</h3>
-              <p className="mt-2 text-sm text-gray-500">No tasks yet!</p>
-            </div>
-            <div className="p-4 bg-white border rounded-md shadow-sm">
-              <h3 className="font-bold">Done</h3>
-              <p className="mt-2 text-sm text-gray-500">No tasks yet!</p>
-            </div>
+          <div className="grid grid-cols-2 gap-4 mt-4 lg:grid-cols-4">
+            {['To Do', 'In Progress', 'Review', 'Done'].map((column, index) => (
+              <div
+                key={index}
+                className="p-4 bg-gray-800 rounded-md shadow-lg hover:bg-gray-700"
+              >
+                <h3 className="text-lg font-bold">{column}</h3>
+                <p className="mt-2 text-sm text-gray-400">No tasks yet!</p>
+              </div>
+            ))}
           </div>
         </section>
 
         {/* Time Tracker */}
-        <section id="time-tracker" className="mt-6">
+        <section id="time-tracker" className="mt-8">
           <h2 className="text-lg font-semibold">Time Tracker</h2>
-          <p className="mt-2 text-sm text-gray-500">Total time spent: 0 hours</p>
+          <p className="mt-2 text-sm text-gray-400">Total time spent: 0 hours</p>
         </section>
       </main>
 
-      {/* Team Members */}
-      <aside className="w-1/4 p-4 bg-base-200" id="team-members">
+      {/* Right Sidebar */}
+      <aside className="w-1/4 p-6 bg-gray-800 shadow-lg">
         <h2 className="text-lg font-bold">Team Members</h2>
-        <ul className="mt-4">
-          <li className="py-2">Karen Smith - Online</li>
-          <li className="py-2">Steve McConnell - Offline</li>
-          <li className="py-2">Sarah Green - Online</li>
+        <ul className="mt-4 space-y-4">
+          {['Karen Smith - Online', 'Steve McConnell - Offline', 'Sarah Green - Online'].map(
+            (member, index) => (
+              <li key={index} className="py-2 border-b border-gray-700">
+                {member}
+              </li>
+            )
+          )}
         </ul>
       </aside>
 
       {/* Tutorial Overlay */}
       {tutorialStep >= 0 && (
         <div className="fixed top-0 left-0 flex items-center justify-center w-full h-full bg-black bg-opacity-50">
-          <div className="p-6 rounded-md shadow-lg bg-base-200">
-            <p>{tutorialSteps[tutorialStep].text}</p>
+          <div className="p-6 bg-gray-800 rounded-md shadow-lg">
+            <p className="text-white">{tutorialSteps[tutorialStep].text}</p>
             <button
               onClick={nextTutorialStep}
               className="px-4 py-2 mt-4 text-white bg-blue-500 rounded-md hover:bg-blue-600"
