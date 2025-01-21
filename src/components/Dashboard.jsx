@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import Button from '../components/Button';
 
 const Dashboard = () => {
   const [tutorialStep, setTutorialStep] = useState(0);
 
   const tutorialSteps = [
-    { text: 'Welcome to TaskTide! This is your project dashboard.', elementId: 'projects' },
+    { text: 'Welcome to TaskTide! Here is a brief tutorial.', elementId: 'projects' },
+    { text: 'This is your side bar, where you can find your profile and more.', elementId: 'sidebar' },
     { text: 'Here are your team members and their statuses.', elementId: 'team-members' },
     { text: 'You can add new tasks or manage your progress here.', elementId: 'task-board' },
     { text: 'Track total time spent on tasks in this section.', elementId: 'time-tracker' },
@@ -34,7 +36,7 @@ const Dashboard = () => {
   return (
     <div className="flex h-screen text-white bg-gray-900">
       {/* Sidebar */}
-      <aside className="w-1/5 p-6 bg-gray-800 shadow-lg">
+      <aside id="sidebar" className="w-1/5 p-6 bg-gray-800 shadow-lg">
         <div className="flex items-center mb-8 space-x-4">
           <img
             src="/images/woman-profile.jpg"
@@ -70,16 +72,13 @@ const Dashboard = () => {
             <h4 className="text-sm font-bold text-gray-500 uppercase">Projects</h4>
             <ul className="mt-4 space-y-4">
               <li className="flex items-center cursor-pointer hover:text-blue-400">
-                <span className="material-icons">calendar_today</span>
-                <span className="ml-2">Calendar</span>
+                <span className="ml-2 material-icons">Calendar</span>
               </li>
               <li className="flex items-center cursor-pointer hover:text-blue-400">
-                <span className="material-icons">branding_watermark</span>
-                <span className="ml-2">Branding</span>
+                <span className="ml-2 material-icons">Branding</span>
               </li>
               <li className="flex items-center cursor-pointer hover:text-blue-400">
-                <span className="material-icons">add</span>
-                <span className="ml-2">New Project</span>
+                <span className="ml-2 material-icons">New Project</span>
               </li>
             </ul>
           </div>
@@ -87,20 +86,18 @@ const Dashboard = () => {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 p-6 bg-gray-900">
+      <main id="task-board" className="flex-1 p-6 bg-gray-900">
         {/* Header */}
         <header className="flex items-center justify-between pb-4 border-b border-gray-700">
           <h1 className="text-2xl font-bold">Dashboard</h1>
-          <button
-            id="settings"
-            className="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600"
-          >
-            Settings
-          </button>
+          {/* Updated Button Component */}
+          <div id="settings">
+            <Button />
+          </div>
         </header>
 
         {/* Task Board */}
-        <section id="task-board" className="mt-6">
+        <section className="mt-6">
           <h2 className="text-lg font-semibold">Task Board</h2>
           <div className="grid grid-cols-2 gap-4 mt-4 lg:grid-cols-4">
             {['To Do', 'In Progress', 'Review', 'Done'].map((column, index) => (
@@ -123,7 +120,7 @@ const Dashboard = () => {
       </main>
 
       {/* Right Sidebar */}
-      <aside className="w-1/4 p-6 bg-gray-800 shadow-lg">
+      <aside id="team-members" className="w-1/4 p-6 bg-gray-800 shadow-lg">
         <h2 className="text-lg font-bold">Team Members</h2>
         <ul className="mt-4 space-y-4">
           {['Karen Smith - Online', 'Steve McConnell - Offline', 'Sarah Green - Online'].map(
