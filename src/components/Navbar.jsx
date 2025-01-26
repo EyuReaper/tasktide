@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useTheme } from '../ThemeContext';
+
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   return (
-    <nav className="text-blue-500 bg-gray-900 shadow-md">
-      <div className="container flex items-center justify-between px-8 py-4 mx-auto">
+<nav
+      className={`text-blue-500 shadow-md ${
+        theme === 'dark' ? 'bg-gray-800' : 'bg-gray-200'
+      }`}
+    >      <div className="container flex items-center justify-between px-8 py-4 mx-auto" >
         {/* Logo Section */}
         <div className="flex items-center space-x-2">
           <img
@@ -15,29 +21,39 @@ const Navbar = () => {
             src="/images/tasktide_logo.png"
           />
           <h1 className="text-xl font-bold btn btn-ghost">TaskTide</h1>
+          
+          
         </div>
 
         {/* Desktop Menu */}
         <div className="hidden lg:flex">
           <ul className="space-x-3 menu menu-horizontal">
             <li>
-              <Link to="/" className="text-white hover:bg-blue-600">
-                Home
+              <Link to="/" className=" hover:bg-blue-600 hover:text-white">
+                <strong>
+                  Home
+                  </strong>
               </Link>
             </li>
             <li>
-              <Link to="/about" className="text-white hover:bg-blue-600">
-                About
+              <Link to="/about" className=" hover:bg-blue-600 hover:text-white">
+                <strong>
+                  About
+                  </strong>
               </Link>
             </li>
             <li>
-              <Link to="/login" className="text-white hover:bg-blue-600">
-                Sign In
+              <Link to="/login" className=" hover:bg-blue-600 hover:text-white">
+                <strong>
+                  Sign In
+                  </strong>
               </Link>
             </li>
             <li>
-              <Link to="/signup" className="text-white hover:bg-blue-600">
-                Sign Up
+              <Link to="/signup" className=" hover:bg-blue-600 hover:text-white">
+                <strong>
+                  Sign Up
+                  </strong>
               </Link>
             </li>
           </ul>

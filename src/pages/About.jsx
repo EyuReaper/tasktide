@@ -13,10 +13,10 @@ const About = () => {
             <h2 className="mb-2 text-lg font-semibold text-orange-500">
               How It Started
             </h2>
-            <h1 className="mb-4 text-4xl font-bold text-white">
+            <h1 className="mb-4 text-4xl font-bold ">
               Our Dream is Global Synchronization of Teams & Tasks
             </h1>
-            <p className="leading-relaxed text-white">
+            <p className="leading-relaxed ">
               TaskTide was founded by Robert Anderson, a passionate lifelong learner,
               and Maria Sanchez, a visionary educator. Their shared dream was to
               create a digital haven of knowledge accessible to all. United by their
@@ -43,25 +43,25 @@ const About = () => {
       <section className="py-12 bg-base">
         <div className="container grid grid-cols-2 gap-8 mx-auto text-center md:grid-cols-4">
           <div>
-            <h3 className="text-4xl font-bold text-white">
+            <h3 className="text-4xl font-bold ">
               <CountUp end={3.5} duration={2.5} decimals={1} />
             </h3>
             <p className="mt-2 text-slate-400">Years Experience</p>
           </div>
           <div>
-            <h3 className="text-4xl font-bold text-white">
+            <h3 className="text-4xl font-bold ">
               <CountUp end={23} duration={2.5} />
             </h3>
             <p className="mt-2 text-slate-400">Project Challenges</p>
           </div>
           <div>
-            <h3 className="text-4xl font-bold text-white">
+            <h3 className="text-4xl font-bold ">
               <CountUp end={830} duration={2.5} suffix="+" />
             </h3>
             <p className="mt-2 text-gray-400">Positive Reviews</p>
           </div>
           <div>
-            <h3 className="text-4xl font-bold text-white">
+            <h3 className="text-4xl font-bold ">
               <CountUp end={100000} duration={2.5} separator="," />
             </h3>
             <p className="mt-2 text-gray-400">Daily Visitors</p>

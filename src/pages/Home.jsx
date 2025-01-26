@@ -8,11 +8,11 @@ const HomePage = () => {
       <section className="container grid items-center gap-8 px-8 mx-auto mt-16 md:grid-cols-2">
         {/* Left Content */}
         <div>
-          <h1 className="mb-6 text-5xl font-extrabold leading-tight text-white">
+          <h1 className="mb-6 text-5xl font-extrabold leading-tight ">
             Stay productive with <br />
             <span className="text-blue-600">TaskTide</span>
           </h1>
-          <p className="mb-6 text-lg text-white">
+          <p className="mb-6 text-lg ">
             Your go-to platform for task management and team collaboration.
             Organize your work, meet deadlines, and achieve goals—all in one
             place.
@@ -56,7 +56,7 @@ const HomePage = () => {
             <h3 className="text-lg font-bold text-white-200">
               Seamless Task Management
             </h3>
-            <p className="text-white">
+            <p>
               Track, prioritize, and complete tasks with ease.
             </p>
           </div>
@@ -71,7 +71,7 @@ const HomePage = () => {
             <h3 className="text-lg font-bold text-white-200">
               Team Collaboration
             </h3>
-            <p className="text-white">
+            <p >
               Work together with your team in real time.
             </p>
           </div>
@@ -86,7 +86,7 @@ const HomePage = () => {
             <h3 className="text-lg font-bold text-white-200">
               Powerful Integrations
             </h3>
-            <p className="text-white">
+            <p >
               Connect with tools like Google Drive, Slack, and more.
             </p>
           </div>

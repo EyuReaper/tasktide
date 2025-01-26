@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Button from '../components/Button';
+import { Link } from 'react-router-dom';
+import { ThemeContext } from '../ThemeContext'; // Import ThemeContext for theming
 
 const Dashboard = () => {
   const [tutorialStep, setTutorialStep] = useState(0);
+  const { theme } = useContext(ThemeContext); // Access theme context
 
   const tutorialSteps = [
     { text: 'Welcome to TaskTide! Here is a brief tutorial.', elementId: 'projects' },
@@ -34,9 +37,17 @@ const Dashboard = () => {
   }, [tutorialStep]);
 
   return (
-    <div className="flex h-screen text-white bg-gray-900">
+    <div
+      className={`flex h-screen ${
+        theme === 'dark' ? 'bg-gray-900 text-white' : 'bg-white text-black'
+      }`}
+      data-theme={theme}
+    >
       {/* Sidebar */}
-      <aside id="sidebar" className="w-1/5 p-6 bg-gray-800 shadow-lg">
+      <aside id="sidebar"  className={`w-4/4 p-6 shadow-lg ${
+          theme === 'dark' ? 'bg-gray-800' : 'bg-gray-200'
+        }`}>
+        
         <div className="flex items-center mb-8 space-x-4">
           <img
             src="/images/woman-profile.jpg"
@@ -86,14 +97,21 @@ const Dashboard = () => {
       </aside>
 
       {/* Main Content */}
-      <main id="task-board" className="flex-1 p-6 bg-gray-900">
-        {/* Header */}
+      <main
+        id="task-board"
+        className={`flex-1 p-6 ${
+          theme === 'dark' ? 'bg-gray-900' : 'bg-gray-100'
+        }`}
+      >
         <header className="flex items-center justify-between pb-4 border-b border-gray-700">
           <h1 className="text-2xl font-bold">Dashboard</h1>
-          {/* Updated Button Component */}
-          <div id="settings">
-            <Button />
-          </div>
+          <Link
+            to="/settings"
+            id="settings"
+            className="px-4 py-2 bg-blue-500 rounded-md hover:bg-blue-600"
+          >
+            Settings
+          </Link>
         </header>
 
         {/* Task Board */}
@@ -103,10 +121,18 @@ const Dashboard = () => {
             {['To Do', 'In Progress', 'Review', 'Done'].map((column, index) => (
               <div
                 key={index}
-                className="p-4 bg-gray-800 rounded-md shadow-lg hover:bg-gray-700"
+                className={`p-4 rounded-md shadow-lg ${
+                  theme === 'dark' ? 'bg-gray-800' : 'bg-gray-200'
+                } hover:bg-gray-700`}
               >
                 <h3 className="text-lg font-bold">{column}</h3>
-                <p className="mt-2 text-sm text-gray-400">No tasks yet!</p>
+                <p
+                  className={`mt-2 text-sm ${
+                    theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
+                  }`}
+                >
+                  No tasks yet!
+                </p>
               </div>
             ))}
           </div>
@@ -115,17 +141,33 @@ const Dashboard = () => {
         {/* Time Tracker */}
         <section id="time-tracker" className="mt-8">
           <h2 className="text-lg font-semibold">Time Tracker</h2>
-          <p className="mt-2 text-sm text-gray-400">Total time spent: 0 hours</p>
+          <p
+            className={`mt-2 text-sm ${
+              theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
+            }`}
+          >
+            Total time spent: 0 hours
+          </p>
         </section>
       </main>
 
       {/* Right Sidebar */}
-      <aside id="team-members" className="w-1/4 p-6 bg-gray-800 shadow-lg">
+      <aside
+        id="team-members"
+        className={`w-1/4 p-6 shadow-lg ${
+          theme === 'dark' ? 'bg-gray-800' : 'bg-gray-200'
+        }`}
+      >
         <h2 className="text-lg font-bold">Team Members</h2>
         <ul className="mt-4 space-y-4">
           {['Karen Smith - Online', 'Steve McConnell - Offline', 'Sarah Green - Online'].map(
             (member, index) => (
-              <li key={index} className="py-2 border-b border-gray-700">
+              <li
+                key={index}
+                className={`py-2 border-b ${
+                  theme === 'dark' ? 'border-gray-700' : 'border-gray-400'
+                }`}
+              >
                 {member}
               </li>
             )
@@ -136,11 +178,15 @@ const Dashboard = () => {
       {/* Tutorial Overlay */}
       {tutorialStep >= 0 && (
         <div className="fixed top-0 left-0 flex items-center justify-center w-full h-full bg-black bg-opacity-50">
-          <div className="p-6 bg-gray-800 rounded-md shadow-lg">
-            <p className="text-white">{tutorialSteps[tutorialStep].text}</p>
+          <div
+            className={`p-6 rounded-md shadow-lg ${
+              theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-black'
+            }`}
+          >
+            <p>{tutorialSteps[tutorialStep].text}</p>
             <button
               onClick={nextTutorialStep}
-              className="px-4 py-2 mt-4 text-white bg-blue-500 rounded-md hover:bg-blue-600"
+              className="px-4 py-2 mt-4 bg-blue-500 rounded-md hover:bg-blue-600"
             >
               {tutorialStep === tutorialSteps.length - 1 ? 'Finish' : 'Next'}
             </button>

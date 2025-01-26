@@ -13,10 +13,12 @@ import Settings from "./pages/Settings";
 import Kanban from "./pages/Kanban";
 import Analytics from "./pages/Analytics";
 import Error404 from "./pages/Error404";
+import { ThemeProvider } from './ThemeContext';
 
 const App = () => {
   return (
     <Router>
+      <ThemeProvider value = {{theme: 'light'}}>
       <Navbar />
       <NotificationSystem />
       <div className="container p-4 mx-auto bg-base-100">
@@ -34,7 +36,8 @@ const App = () => {
         </Routes>
 
       </div>
-      <Footer/>
+        <Footer />
+        </ThemeProvider>
     </Router>
   );
 };
