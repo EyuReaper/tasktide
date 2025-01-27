@@ -3,9 +3,10 @@
 TaskTide is a task management application that allows users to create, manage, and track projects, tasks, and team collaboration. It includes real-time features, a modern dashboard inspired by productivity tools, and secure user authentication.
 
 # Preview
-![Preview Screenshot 1](images/image.png).
-![Preview Screenshot 2](images/images2.png).
-![Preview Screenshot 3](images/images3.png).
+
+![ Screenshot 1](./public/images/image.png).
+![ Screenshot 2](./public/images/images2.png).
+![ Screenshot 3](./public/images/images3.png).
 
 
 ## Features
