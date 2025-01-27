@@ -2,6 +2,10 @@
 
 TaskTide is a task management application that allows users to create, manage, and track projects, tasks, and team collaboration. It includes real-time features, a modern dashboard inspired by productivity tools, and secure user authentication.
 
+## Preview
+![preview_screenshot_1].(images/image.png).
+![preview_screenshot_2].(images/images2.png).
+![preview_screenshot_3].(images/images3.png).
 ## Features
 - User signup and login with password hashing and JWT authentication.
 - Dashboard for managing projects, tasks, and team members.
@@ -122,6 +126,10 @@ Use a tool like [Postman](https://www.postman.com/) or cURL to test the API endp
 
 ## Deployment
 TaskTide can be deployed using platforms like Heroku, Vercel, or Netlify. For backend services, configure the `DATABASE_URL` environment variable provided by the platform.
+
+## notes from the owner
+- front-end could use more polish
+- back-end has not implemented yet
 
 ## Future Enhancements
 - Add real-time chat for team members.
