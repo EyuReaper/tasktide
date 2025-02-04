@@ -23,22 +23,16 @@ const Footer = () => {
 
         {/* Social Icons */}
         <nav className="flex justify-center gap-4">
+
           <a
-            href="https://x.com"
+            href="https://X.com"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="X (formerly Twitter)"
-            className="hover:text-blue-600"
+            aria-label="X"
+            className="hover:text-gray-200"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 32 32"
-              width="24"
-              height="24"
-              className="fill-current"
-            >
-              <path d="M23.498 2h-5.502L16 4.628 14.004 2H8.502L2 8.774v5.59L6.5 16 2 18.228v5.59L8.502 30h5.502L16 27.372 17.996 30h5.502L30 23.226v-5.59L25.5 16 30 13.772v-5.59L23.498 2zm-2.625 2 5.625 6.003-4.303 3.26L28.5 16l-6.305 4.737L26.498 26h-6.63l-3.868-5.745L12.13 26H5.502l5.625-6.003-4.303-3.26L3.502 16l6.305-4.737L5.502 6h6.63l3.868 5.745L19.87 6h6.003z" />
-            </svg>
+            <svg  className="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24"  viewBox="0 0 1200 1227"><path d="M714.163 519.284 1160.89 0h-105.86L667.137 450.887 357.328 0H0l468.492 681.821L0 1226.37h105.866l409.625-476.152 327.181 476.152H1200L714.137 519.284h.026ZM569.165 687.828l-47.468-67.894-377.686-540.24h162.604l304.797 435.991 47.468 67.894 396.2 566.721H892.476L569.165 687.854v-.026Z"/></svg>
+            
           </a>
           <a
             href="https://youtube.com"
