@@ -1,42 +1,40 @@
 const express = require('express');
-const pool = require('../config/db'); // Import database connection
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const pool = require('../db');
+require('dotenv').config();
+
 const router = express.Router();
-const db = require('../config/db');
 
-// Signup Route
-router.post('/signup', async (req, res) => {
-    const { username, email, password } = req.body;
-
+// Register Route
+router.post('/register', async (req, res) => {
+    const { name, email, password } = req.body;
     try {
-        const result = await pool.query(
-            'INSERT INTO users (username, email, password) VALUES ($1, $2, $3) RETURNING *',
-            [username, email, password]
+        const hashedPassword = await bcrypt.hash(password, 10);
+        const newUser = await pool.query(
+            'INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING *',
+            [name, email, hashedPassword]
         );
-        res.status(201).json({ message: 'User created!', user: result.rows[0] });
-    } catch (err) {
-        console.error('Error in signup:', err);
-        res.status(500).json({ error: 'Could not create user' });
+        res.json(newUser.rows[0]);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
     }
 });
 
 // Login Route
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
-
     try {
-        const result = await pool.query(
-            'SELECT * FROM users WHERE email = $1 AND password = $2',
-            [email, password]
-        );
+        const user = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
+        if (user.rows.length === 0) return res.status(400).json({ message: 'User not found' });
 
-        if (result.rows.length === 0) {
-            return res.status(401).json({ error: 'Invalid credentials' });
-        }
+        const validPassword = await bcrypt.compare(password, user.rows[0].password);
+        if (!validPassword) return res.status(400).json({ message: 'Invalid credentials' });
 
-        res.status(200).json({ message: 'Login successful', user: result.rows[0] });
-    } catch (err) {
-        console.error('Error in login:', err);
-        res.status(500).json({ error: 'Could not log in' });
+        const token = jwt.sign({ id: user.rows[0].id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        res.json({ token, user: user.rows[0] });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
     }
 });
 
