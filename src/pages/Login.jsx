@@ -19,7 +19,7 @@ const Login = () => {
         </p>
 
         {/* Google Login Button */}
-        <button className="flex items-center justify-center w-3/4 py-2 mt-6 border border-gray-300 rounded-md hover:bg-gray-100" onClick={handleLogin}>
+        <button className="flex items-center justify-center w-3/4 py-2 mt-6 text-gray-700 border border-gray-300 rounded-md hover:bg-gray-100" onClick={handleLogin}>
           <img
             src="/images/google.png"
             alt="Google Icon"

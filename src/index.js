@@ -5,6 +5,8 @@ import './index.css'; // If you have global styles
 
 // Get the root DOM element
 const rootElement = document.getElementById('root');
+// integrate routes
+
 
 // Create a root and render the App component
 const root = ReactDOM.createRoot(rootElement);

@@ -17,6 +17,7 @@ const Dashboard = () => {
   ];
 
   const nextTutorialStep = () => {
+
     if (tutorialStep < tutorialSteps.length - 1) {
       setTutorialStep(tutorialStep + 1);
     } else {
@@ -38,14 +39,14 @@ const Dashboard = () => {
 
   return (
     <div
-      className={`flex h-screen ${
+      className={`flex h-screen overflow-hidden ${
         theme === 'dark' ? 'bg-gray-900 text-white' : 'bg-white text-black'
       }`}
       data-theme={theme}
     >
       {/* Sidebar */}
       <aside id="sidebar"  className={`w-4/4 p-6 shadow-lg ${
-          theme === 'dark' ? 'bg-gray-800' : 'bg-gray-200'
+          theme === 'dark' ? 'bg-gray-800 border-r border-gray-700' : 'bg-gray-200 border-r border-gray-400'
         }`}>
         
         <div className="flex items-center mb-8 space-x-4">
@@ -108,9 +109,8 @@ const Dashboard = () => {
           <Link
             to="/settings"
             id="settings"
-            className="px-4 py-2 bg-blue-500 rounded-md hover:bg-blue-600"
           >
-            Settings
+            <Button></Button>
           </Link>
         </header>
 
@@ -155,7 +155,7 @@ const Dashboard = () => {
       <aside
         id="team-members"
         className={`w-1/4 p-6 shadow-lg ${
-          theme === 'dark' ? 'bg-gray-800' : 'bg-gray-200'
+          theme === 'dark' ? 'bg-gray-800 border-l border-gray-700' : 'bg-gray-200 border-l border-gray-400'
         }`}
       >
         <h2 className="text-lg font-bold">Team Members</h2>
