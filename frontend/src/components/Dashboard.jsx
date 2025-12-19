@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useMemo } from 'react';
 import Button from '../components/Button';
 import { Link } from 'react-router-dom';
 import { ThemeContext } from '../ThemeContext'; // Import ThemeContext for theming
@@ -7,14 +7,14 @@ const Dashboard = () => {
   const [tutorialStep, setTutorialStep] = useState(0);
   const { theme } = useContext(ThemeContext); // Access theme context
 
-  const tutorialSteps = [
+  const tutorialSteps = useMemo(() => [
     { text: 'Welcome to TaskTide! Here is a brief tutorial.', elementId: 'projects' },
     { text: 'This is your side bar, where you can find your profile and more.', elementId: 'sidebar' },
     { text: 'Here are your team members and their statuses.', elementId: 'team-members' },
     { text: 'You can add new tasks or manage your progress here.', elementId: 'task-board' },
     { text: 'Track total time spent on tasks in this section.', elementId: 'time-tracker' },
     { text: 'Click the settings icon for additional options.', elementId: 'settings' },
-  ];
+  ], []);
 
   const nextTutorialStep = () => {
 
@@ -35,7 +35,7 @@ const Dashboard = () => {
         return () => element.classList.remove('ring-4', 'ring-blue-500');
       }
     }
-  }, [tutorialStep]);
+  }, [tutorialStep, tutorialSteps]);
 
   return (
     <div

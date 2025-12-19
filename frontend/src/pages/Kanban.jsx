@@ -1,34 +1,88 @@
-import React, { useState } from "react";
+import React from "react";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { useGetTasksQuery, useUpdateTaskStatusMutation } from "../services/kanbanApi";
 
 const Kanban = () => {
-  const [tasks, setTasks] = useState({
-    todo: ["Task 1 - High Priority", "Task 2 - Low Priority"],
-    inProgress: ["Task 3 - Medium Priority"],
-    underReview: ["Task 4 - Medium Priority"],
-    done: ["Task 5 - Low Priority"],
-  });
+  const { data: tasks, error, isLoading } = useGetTasksQuery();
+  const [updateTaskStatus] = useUpdateTaskStatusMutation();
+
+  const onDragEnd = (result) => {
+    const { destination, source, draggableId } = result;
+
+    if (!destination) {
+      return;
+    }
+
+    if (
+      destination.droppableId === source.droppableId &&
+      destination.index === source.index
+    ) {
+      return;
+    }
+
+    const startStatus = source.droppableId;
+    const finishStatus = destination.droppableId;
+
+    if (startStatus === finishStatus) {
+      // Reordering within the same column (not implemented in mock API yet, but good to keep structure)
+      // For now, we only handle status change
+    } else {
+      updateTaskStatus({
+        taskId: draggableId,
+        newStatus: finishStatus,
+        oldStatus: startStatus,
+      });
+    }
+  };
+
+  if (isLoading) {
+    return <div className="p-4 text-center">Loading tasks...</div>;
+  }
+
+  if (error) {
+    return <div className="p-4 text-center text-error">Error loading tasks.</div>;
+  }
 
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Kanban Board</h1>
-      <div className="grid grid-cols-4 gap-4">
-        {/* Render each task category */}
-        {Object.entries(tasks).map(([category, taskList]) => (
-          <div key={category} className="border rounded-lg p-4 bg-gray-100">
-            <h2 className="text-xl font-semibold mb-2 capitalize">
-              {category}
-            </h2>
-            <ul>
-              {taskList.map((task, index) => (
-                <li key={index} className="mb-2 p-2 bg-white rounded shadow">
-                  {task}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+    <DragDropContext onDragEnd={onDragEnd}>
+      <div className="p-4">
+        <h1 className="text-2xl font-bold mb-4">Kanban Board</h1>
+        <div className="grid grid-cols-4 gap-4">
+          {Object.entries(tasks).map(([category, taskList]) => (
+            <Droppable droppableId={category} key={category}>
+              {(provided) => (
+                <div
+                  {...provided.droppableProps}
+                  ref={provided.innerRef}
+                  className="border rounded-lg p-4 bg-gray-100 min-h-[200px]"
+                >
+                  <h2 className="text-xl font-semibold mb-2 capitalize">
+                    {category}
+                  </h2>
+                  <ul>
+                    {taskList.map((task, index) => (
+                      <Draggable key={task.id} draggableId={task.id} index={index}>
+                        {(provided) => (
+                          <li
+                            ref={provided.innerRef}
+                            {...provided.draggableProps}
+                            {...provided.dragHandleProps}
+                            className="mb-2 p-2 bg-white rounded shadow cursor-grab"
+                          >
+                            {task.title}
+                          </li>
+                        )}
+                      </Draggable>
+                    ))}
+                    {provided.placeholder}
+                  </ul>
+                </div>
+              )}
+            </Droppable>
+          ))}
+        </div>
       </div>
-    </div>
+    </DragDropContext>
   );
 };
 

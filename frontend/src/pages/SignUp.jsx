@@ -47,7 +47,7 @@ const Signup = () => {
       {/* Left Section: Illustration */}
       <div className="flex flex-col items-center justify-center w-1/2 p-10 bg-base-700">
         <h1 className="text-4xl font-bold text-blue-500">TaskTide</h1>
-        <p className="mt-4 text-lg text-gray-600">
+        <p className="mt-4 text-lg text-white">
           A central hub where teams can work, plan, and achieve amazing things
           together.
         </p>
@@ -158,13 +158,13 @@ const Signup = () => {
 
           <p className="mt-4 text-xs text-gray-500">
             This site is protected by reCAPTCHA and the Google{" "}
-            <a href="#" className="text-blue-500 hover:underline">
+            <button type="button" className="text-blue-500 hover:underline">
               Privacy Policy
-            </a>{" "}
+            </button>{" "}
             and{" "}
-            <a href="#" className="text-blue-500 hover:underline">
+            <button type="button" className="text-blue-500 hover:underline">
               Terms of Service
-            </a>{" "}
+            </button>{" "}
             apply.
           </p>
         </div>

@@ -1,4 +1,3 @@
-import { retry } from "@reduxjs/toolkit/query";
 import React, { useState } from "react";
 
 const Profile = () => {

@@ -2,7 +2,7 @@ import React from "react";
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen bg-base-100"  >
+    <div className="min-h-screen "  >
 
       {/* Hero Section */}
       <section className="container grid items-center gap-8 px-8 mx-auto mt-16 md:grid-cols-2">
@@ -46,7 +46,7 @@ const HomePage = () => {
 
       {/* Features Section */}
       <section className="container grid gap-8 px-8 mx-auto mt-16 md:grid-cols-3">
-        <div className="flex items-center p-6 space-x-4 rounded-lg shadow-md bg-base-200">
+        <div className="flex items-center p-6 space-x-4 transition-all duration-500 rounded-lg shadow-md shadow-2xl bg-white/10 backdrop-blur-lg border-white/20 round-2xl ">
           <img
             src="/images/schedule.png"
             alt="Task Management"
@@ -61,7 +61,7 @@ const HomePage = () => {
             </p>
           </div>
         </div>
-        <div className="flex items-center p-6 space-x-4 rounded-lg shadow-md bg-base-200">
+        <div className="flex items-center p-6 space-x-4 rounded-lg shadow-md shadow-2xl bg-white/10 backdrop-blur-lg border-white/20 round-2xl">
           <img
             src="/images/teamwork.png"
             alt="Team Collaboration"
@@ -76,7 +76,7 @@ const HomePage = () => {
             </p>
           </div>
         </div>
-        <div className="flex items-center p-6 space-x-4 rounded-lg shadow-md bg-base-200">
+        <div className="flex items-center p-6 space-x-4 rounded-lg shadow-md shadow-2xl bg-white/10 backdrop-blur-lg border-white/20 round-2xl">
           <img
             src="/images/brain.png"
             alt="Integrations"

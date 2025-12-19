@@ -5,13 +5,12 @@ import { useTheme } from '../ThemeContext';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme();
+  // eslint-disable-next-line no-unused-vars
+  const { theme } = useTheme();
 
   return (
 <nav
-      className={`text-blue-500 shadow-md ${
-        theme === 'dark' ? 'bg-gray-800' : 'bg-gray-200'
-      }`}
+      className={`text-blue-500 bg-transparent`}
     >      <div className="container flex items-center justify-between px-8 py-4 mx-auto" >
         {/* Logo Section */}
         <div className="flex items-center space-x-2">
